@@ -17,6 +17,9 @@
                <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" width="250px" height="250px"></a> 
                 <p><%= location.name %></p>
             </div>
+            <form action="/locations/<%= location._id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete">
+            </form>
        <% } ) %>
     </div>
 </body>
