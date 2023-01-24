@@ -55,9 +55,14 @@ app.get('/locations', (req, res) => {
 //New
 app.get('/locations/new', (req, res) => {
     res.render('new.ejs');
-})
+});
 
-//Delete
+//Delete -- get locations/:id
+app.delete('/locations/:id', (req, res) => {
+    Location.findByIdAndDelete(req.params.id, (err, deletedLocation) => {
+        res.redirect('/locations');
+    });
+});
 
 //Update
 
@@ -82,4 +87,4 @@ app.get('/locations/:id', (req, res) => {
 //tell the application to listen on a dedicated port.
 app.listen(PORT, () => {
     console.log(`Express is listening on port: ${PORT}`);
-})
+});
