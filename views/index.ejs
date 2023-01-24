@@ -11,7 +11,7 @@
     <div>
         <% locations.forEach(location => { %>
             <div>
-                <img src="<%= location.img %>" alt="Image of <%= location.name %>" width="250px" height="250px">
+               <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" width="250px" height="250px"></a> 
                 <p><%= location.name %></p>
             </div>
        <% } ) %>
