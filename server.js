@@ -2,7 +2,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Location = require('./models/location');
-const data = require('./data')
+const data = require('./data');
+const methodOverride = require('method-override');
 
 // initialize the application
 const app = express();
@@ -28,6 +29,7 @@ db.on('error', (err) => {
 
 //mount middleware
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 //mount routes
 //INDUCES
@@ -51,6 +53,9 @@ app.get('/locations', (req, res) => {
 });
 
 //New
+app.get('/locations/new', (req, res) => {
+    res.render('new.ejs');
+})
 
 //Delete
 
@@ -59,7 +64,7 @@ app.get('/locations', (req, res) => {
 //Create
 app.post('/locations', (req, res) => {
     Location.create(req.body, (err, createdLocation) => {
-        res.send(createdLocation);
+        res.redirect('/locations');
     });
 });
 
