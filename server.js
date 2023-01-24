@@ -65,6 +65,11 @@ app.delete('/locations/:id', (req, res) => {
 });
 
 //Update
+app.put('/locations/:id', (req, res) => {
+    Location.findByIdAndUpdate(req.params.id, req.body, (err, updatedLocation) => {
+        res.redirect('/locations');
+    });
+});
 
 //Create
 app.post('/locations', (req, res) => {
@@ -73,7 +78,14 @@ app.post('/locations', (req, res) => {
     });
 });
 
-//Edit
+//Edit --GET locations/:id/edit
+app.get('/locations/:id/edit', (req, res) => {
+    Location.findById(req.params.id, (err, foundLocation) => {
+        res.render('edit.ejs', {
+            location: foundLocation,
+        });
+    });
+});
 
 // Show- GET location/:id
 app.get('/locations/:id', (req, res) => {
