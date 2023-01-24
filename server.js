@@ -65,7 +65,14 @@ app.post('/locations', (req, res) => {
 
 //Edit
 
-// Show- 
+// Show- GET location/:id
+app.get('/locations/:id', (req, res) => {
+    Location.findById(req.params.id, (err, foundLocation) => {
+        res.render('show.ejs', {
+            location: foundLocation,
+        });
+    });
+});
 
 //tell the application to listen on a dedicated port.
 app.listen(PORT, () => {
