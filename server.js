@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Location = require('./models/location');
+const data = require('./data')
 
 // initialize the application
 const app = express();
@@ -32,10 +33,21 @@ app.use(express.urlencoded({extended: false}));
 //INDUCES
 
 //seed data
+app.get('/locations/seed', (req, res) => {
+    Location.deleteMany({}, (err, results) => {
+        Location.create(data, (err, locations) => {
+            res.redirect('/locations');
+        });
+    });
+});
 
 //Index
 app.get('/locations', (req, res) => {
-    res.send('locations page');
+    Location.find({}, (err, allLocations) => {
+        res.render('index.ejs', {
+            locations: allLocations,
+        });
+    });
 });
 
 //New
