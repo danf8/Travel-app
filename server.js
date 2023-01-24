@@ -1,6 +1,7 @@
 // require dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const Location = require('./models/location');
 
 // initialize the application
 const app = express();
@@ -45,7 +46,9 @@ app.get('/locations', (req, res) => {
 
 //Create
 app.post('/locations', (req, res) => {
-    res.send(req.body);
+    Location.create(req.body, (err, createdLocation) => {
+        res.send(createdLocation);
+    });
 });
 
 //Edit
