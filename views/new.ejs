@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style-new.css">
     <title>Add a New Location</title>
 </head>
 <body>
+    <nav>
+        <a href="/locations"><button class="btn ">Return to Locations</button></a>
+    </nav>
     <h1>Add a New location</h1>
     <form action="/locations" method="POST">
        <p>Name of Location: <input type="text" name="name" ></p>
        <p>Picture of location: <input type="text" name="img"></p>
-       <p>Name of Hotel: <input type="text" name="hotel"></p>
-       <p>Description of location: <input type="text" name="description"></p>
-       <p>Attractions you want to visit: <input type="text" name="attractions"></p>
-       <input type="submit" name="Add your location">
+       <p>Name of the Hotel: <input type="text" name="hotel"></p>
+       <p>Describe Location: <input type="text" name="description"></p>
+       <p>Attractions to visit: <input type="text" name="attractions"></p>
+       <div>
+           <input type="submit" name="Add your location" class="btn">
+       </div>
     </form>
 </body>
 </html>
