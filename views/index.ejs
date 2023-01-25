@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
     <title>Locations</title>
 </head>
 <body>
     <nav>
-        <a href="/locations/new">Add a New Location</a>
+        <a href="/locations/new"><button class="btn">Add a New Location</button></a>
+        <a href=""><button class="btn save">View Saved Destinations</button></a>
     </nav>
     <h1>Places to Travel</h1>
-    <div>
+    <div class="location-div">
         <% locations.forEach(location => { %>
-            <div>
-               <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" width="250px" height="250px"></a> 
+            <div class="location">
+                <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" ></a> 
                 <p><%= location.name %></p>
+                <div class="links">
+                    <a href="/locations/<%= location._id %>"> <button class="edit btn ">View Destination</button></a>
+                    <form action="/locations/<%= location._id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="btn">
+                    </form>
+                </div>
             </div>
-            <form action="/locations/<%= location._id%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete">
-            </form>
-            <a href="/locations/<%= location._id %>/edit">Edit</a>
-       <% } ) %>
+            <% } ) %>
     </div>
 </body>
 </html>
