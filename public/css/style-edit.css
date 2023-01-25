@@ -1,0 +1,46 @@
+/* style for edit page */
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+img {
+    width: 350px;
+    height: 300px;
+}
+
+p {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+input{
+    margin-left: 10px;
+    align-items: right;
+    width: 200px;
+}
+
+.describe {
+    margin-left: 0;
+    width: 180px;
+}
+
+.hotel {
+margin-left: 0;
+width: 210px;
+}
+
+.attractions {
+    width: 180px;
+}

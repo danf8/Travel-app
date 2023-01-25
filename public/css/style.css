@@ -1,0 +1,59 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 16px;
+}
+
+h1 {
+    font-family: Helvetica, Arial;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
+
+p {
+    margin-top: 15px;
+}
+
+input{
+    margin-right: 25px;
+    width: 100px;
+}
+
+.save {
+    margin-left: 10px;
+}
+
+.location-div {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    padding: 30px 0px 30px 0px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.links {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+    justify-content: space-between;
+}
+
+.edit{
+    color: black;
+    margin-right: 50px;
+}
+

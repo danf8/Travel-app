@@ -1,0 +1,29 @@
+/* style for show page */
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+div{
+    text-align: center;
+}
+
+img{
+    width: 450px;
+    height: 400px;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+nav {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
