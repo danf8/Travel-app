@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style-edit.css">
     <title>Edit Location</title>
 </head>
 <body>
+    <nav>
+        <a href="/locations/<%= location._id %>"><button class="btn">Return to <%= location.name %></button></a>
+    </nav>
     <h1>Edit Location: <%= location.name %></h1>
+    <div>
+        <img src="<%= location.img %>">
+    </div>
     <form action="/locations/<%= location._id %>?_method=PUT" method="POST">
-        <p>Name: <input type="text" name="name" value="<%= location.name %>"></p>
-        <p>Image: <input type="text" name="img" value="<%= location.img %>"></p>
-        <p>Description: <input type="text" name="description" value="<%= location.description %>"></p>
-        <p>Hotels: <input type="text" name="hotels" value="<%= location.hotels %>"></p>
-        <p>Attractions: <input type="text" name="attractions" value="<%= location.attractions %>"></p>
-        <input type="submit" value="Submit">
+        <div class="form">
+            <p>Name: <input type="text" name="name" value="<%= location.name %>"></p>
+            <p>Image: <input type="text" name="img" value="<%= location.img %>"></p>
+            <p>Description: <input type="text" name="description" value="<%= location.description %>" class="describe"></p>
+            <p>Hotels: <input type="text" name="hotels" value="<%= location.hotels %>" class="hotel"></p>
+            <p>Attractions: <input type="text" name="attractions" value="<%= location.attractions %>" class="attractions"></p>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </div>
     </form>
 </body>
 </html>
