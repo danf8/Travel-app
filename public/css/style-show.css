@@ -1,4 +1,5 @@
 /* style for show page */
+
 h1 {
     text-align: center;
     padding-bottom: 20px;
@@ -26,4 +27,11 @@ nav {
 
 form {
     margin-top: 10px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 8px;
 }
