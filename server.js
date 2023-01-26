@@ -5,6 +5,8 @@ const Location = require('./models/location');
 const data = require('./data');
 const methodOverride = require('method-override');
 const locationsRouter = require('./controllers/locations');
+const usersRouter = require('./controllers/users');
+const session = require('express-session');
 
 // initialize the application
 const app = express();
@@ -29,13 +31,22 @@ db.on('error', (err) => {
 });
 
 //mount middleware
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+}));
+
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
 //mount routes
 //INDUCES
+app.get('/', (req, res) => res.render('homepage.ejs'));
+
 app.use(locationsRouter);
+app.use(usersRouter);
 
 //tell the application to listen on a dedicated port.
 app.listen(PORT, () => {
