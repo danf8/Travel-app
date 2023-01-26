@@ -7,6 +7,8 @@ const locationSchema = new Schema({
     description: String,
     hotels: String,
     attractions: String,
+    date: String,
+    travelPlan: String,
 });
 
 module.exports = mongoose.model('location', locationSchema);
