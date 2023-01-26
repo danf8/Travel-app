@@ -4,12 +4,16 @@ module.exports = [{
     description: "Costal resourt town along the Caribbean shoreline",
     hotels: 'Hyatt',
     attractions: 'Mostly beaches',
+    date: '1/30',
+    travelPlan: 'Go to the beach',
 },{
     name: 'Aruba',
     img: 'https://i.imgur.com/94oOjcw.png',
     description: 'Island in the southern Caribbean',
     hotels: 'Marriott Renaissance ',
     attractions: 'Flamingo Beach',
+    date: '1/30',
+    travelPlan: 'Go to the beach',
 },
 {
     name: 'South Korea',
@@ -17,4 +21,6 @@ module.exports = [{
     description: 'Country located on southern half of Korean Peninsula, surrounded by Sea of Japan, Yellow Sea, and East China Sea ',
     hotels: 'Hyatt',
     attractions: 'Gyeongbokgung Palace',
+    date: '1/30',
+    travelPlan: 'Go to the Gyeongbokgung Palace',
 },]
