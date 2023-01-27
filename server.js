@@ -31,22 +31,36 @@ db.on('error', (err) => {
 });
 
 //mount middleware
+
+app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+app.use(express.static('public'));
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
 }));
-
-app.use(express.urlencoded({extended: false}));
-app.use(methodOverride('_method'));
-app.use(express.static('public'));
+//dev purposes
+// app.use((req, res, next) => {
+//     console.log(req.session)
+//     next();
+// });
+//authenitcatin
+function authenticatedUser(req, res , next) {
+    if(!req.session.userId){
+        res.locals.user = null;
+        return res.redirect('/');
+    }
+    res.locals.user = req.session.userId;
+    next();
+};
 
 //mount routes
 //INDUCES
 app.get('/', (req, res) => res.render('homepage.ejs'));
 
-app.use(locationsRouter);
 app.use(usersRouter);
+app.use(authenticatedUser, locationsRouter);
 
 //tell the application to listen on a dedicated port.
 app.listen(PORT, () => {
