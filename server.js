@@ -45,13 +45,21 @@ app.use(session({
 //     console.log(req.session)
 //     next();
 // });
+
+app.use((req, res, next) => {
+    if(req.session.userId) {
+        res.locals.user = req.session.userId;
+    } else {
+        res.locals.user = null;
+    }
+    next();
+})
+
 //authenitcatin
 function authenticatedUser(req, res , next) {
     if(!req.session.userId){
-        res.locals.user = null;
         return res.redirect('/');
     }
-    res.locals.user = req.session.userId;
     next();
 };
 
