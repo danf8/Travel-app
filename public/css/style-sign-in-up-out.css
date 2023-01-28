@@ -1,0 +1,32 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: url('https://images.pexels.com/photos/163185/old-retro-antique-vintage-163185.jpeg?auto=compress&cs=tinysrgb&w=900') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+h1 {
+    text-align: center;
+    color: antiquewhite;
+}
+
+form{
+margin-top: 400px;
+margin-right: 270px;
+text-align: center;
+}
+
+.btn-link{
+    color: rgb(21, 132, 223);
+    margin-left: 15px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 550px;
+    color: antiquewhite;
+}

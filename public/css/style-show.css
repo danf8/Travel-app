@@ -21,8 +21,10 @@ p {
 }
 
 nav {
-    margin-top: 15px;
-    margin-left: 10px;
+    background-color: rgb(227, 225, 218);
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 10px;
 }
 
 form {
@@ -37,7 +39,14 @@ form {
 }
 svg {
     position: absolute;
-    right: 25px;
+    top: 10px;
+    right: 10px;
     height: 24px;
     width: 24px;
+}
+
+.logout {
+    position: absolute;
+    right: 30px;
+    top: 5px;
 }

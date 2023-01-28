@@ -55,7 +55,16 @@ width: 210px;
 
 svg {
     position: absolute;
-    right: 25px;
+    top: 5px;
+    right: 10px;
     height: 24px;
     width: 24px;
+}
+nav {
+    background-color: rgb(227, 225, 218);
+}
+
+.logout {
+    position: absolute;
+    right: 30px;
 }

@@ -4,6 +4,7 @@ nav {
     justify-content: left;
     align-items: center;
     padding: 10px 16px;
+    background-color: rgb(227, 225, 218);
 }
 
 h1 {
@@ -59,9 +60,11 @@ input{
 
 svg {
     position: absolute;
-    right: 25px;
+    right: 10px;
+    top: 15px;
     height: 24px;
     width: 24px;
+    margin-bottom: 15px;
 }
 
 .footer{
@@ -70,4 +73,9 @@ svg {
     width: 100%;
     font-size: 10px;
     text-align: center;
+}
+
+.logout {
+    position: absolute;
+    right: 30px;
 }

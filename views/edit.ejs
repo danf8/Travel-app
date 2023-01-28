@@ -7,8 +7,8 @@
 </head>
 <body>
     <nav>
-        <%- include('./partials/nav') %>
         <a href="/locations/<%= location._id %>"><button class="btn">Return to <%= location.name %></button></a>
+        <%- include('./partials/nav') %>
     </nav>
     <h1>Edit Location: <%= location.name %></h1>
     <div>
