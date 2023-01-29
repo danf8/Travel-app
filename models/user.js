@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
     email: {type: String, required: true, unique: true, lowercase: true},
-    // firstName: {type: String, required: true},
-    // lastName: {type: String, required: true},
     password: {type: String, required: true},
     confirmPass: {type: String, required: true},
+    locations: [],
+    // changed this for save
 }, {
     timestamps: true,
 });

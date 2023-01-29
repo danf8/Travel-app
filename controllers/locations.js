@@ -3,6 +3,7 @@ const router = express.Router();
 const data = require('../data');
 const Location = require('../models/location');
 
+
 //seed data
 router.get('/locations/seed', (req, res) => {
     Location.deleteMany({}, (err, results) => {

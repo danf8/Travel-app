@@ -2,16 +2,51 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const Locations = require('./locations');
+const user = require('../models/user');
+
 
 // induces
 
 //sign up users
-//provides signup form 
+//provides signup form -index
 router.get('/signup', (req, res) => {
     res.render('signup.ejs' ,{error: null});
 });
 
-//handle form submission
+//login users -index
+router.get('/login', (req, res) => {
+    res.render('login.ejs', {error: null});
+});
+
+//logtout users -index
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        res.redirect('/login');
+    });
+});
+
+//Get saved locations page
+router.get('/locations/saved', (req, res) => {
+    User.find({}, (err, savedLocation) => {
+        res.render('saved.ejs', {
+            user: savedLocation
+        })
+
+    })
+})
+
+//changed this for save,, wip still need to work on this route and uncomment
+router.post('/locations/saved', (req, res) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locations: req.body}}, (err, savedLocation) => {
+        if(err){
+            console.log(err)
+        }
+        res.redirect('/locations/saved')
+    })
+});
+
+//handle form submission --CREATE
 router.post('/signup', (req, res) => {
     let error = null;
     if(req.body.password !== req.body.confirmPass){
@@ -27,41 +62,25 @@ router.post('/signup', (req, res) => {
     });
 });
 
-//login users
-router.get('/login', (req, res) => {
-    res.render('login.ejs', {error: null});
-});
 
-// handle form submission
+// handle form submission -- create
 router.post('/login', (req, res) => {
-    //1 look up user using email
     const error = 'Incorrect Login Information.'
     User.findOne({email: req.body.email}, (err, userFound) => {
-        //1.1 if user exist compare password for match
-        //1.2 if user does not exist we redirect to login pg
         if(!userFound) {
             return res.render('login.ejs', {error});
         }
         const confirmedPass = bcrypt.compareSync(req.body.password, userFound.password)
-        // 2. if user exist we use bcyrpt to compare password. plain text ps to hashed/salted
-        // 2.1 if password match we redirect to location page
         if(!confirmedPass) {
-            //2.2 if password does not match redireect to login page
             return res.render('login.ejs', {error});
         }
-        //create a new session for authenitcated user, they logged on
         req.session.userId = userFound._id;
         res.redirect('/locations');
     });
 
 });
 
-//logtout users
-router.get('/logout', (req, res) => {
-    req.session.destroy((err) => {
-        res.redirect('/login');
-    });
-});
+
 
 
 
