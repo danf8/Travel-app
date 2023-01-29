@@ -1,13 +1,6 @@
-/* style sheet for new page */
-body{
-    text-align: center;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 50px;
+/* Css for saved page */
+h1 {
+    color: red;
 }
 
 nav{
@@ -16,13 +9,6 @@ nav{
     height: 50px;
     padding-top: 5px;
     padding-left: 10px;
-}
-
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 8px;
 }
 
 svg {

@@ -17,6 +17,7 @@
         <!-- changed this for save -->
         <form action="/locations/saved?_method=POST" method="POST"> 
             <input type="text" name="locations" value="<%= location.name %>" hidded>
+            <input type="text" name="locations" value="<%= location._id %>">
             <input type="submit" value="Save This Destination" class="btn ">
         </form>
     </div>

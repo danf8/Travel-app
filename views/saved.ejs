@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
     <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/style-save.css">
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <%- include('./partials/nav') %>
+        <a href="/locations">Return to Homepage</a>
+    </nav>
     <h1>Saved Locations</h1>
     <% user.forEach(users => { %>
-        <% users.locations.forEach(location => { %>
-            <p><%= location %></p>
+        <% users.locations.forEach(location => { %>    
+            <a href="/locations/<%= location[1] %>"><p><%= location[0] %></p></a>
        <% }) %>
   <%  }) %>
+  <%- include('./partials/footer') %>
 </body>
 </html>

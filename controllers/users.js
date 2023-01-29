@@ -30,6 +30,9 @@ router.get('/logout', (req, res) => {
 //Get saved locations page
 router.get('/locations/saved', (req, res) => {
     User.find({_id: req.session.userId}, (err, savedLocation) => {
+        if(!req.session.userId) {
+         return res.redirect('/');
+        }
         res.render('saved.ejs', {
             user: savedLocation
         });
