@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-const Locations = require('./locations');
+// const Locations = require('./locations');
+// const { db } = require('../models/user');
 // const user = require('../models/user');
 
 
@@ -28,20 +29,20 @@ router.get('/logout', (req, res) => {
 
 //Get saved locations page
 router.get('/locations/saved', (req, res) => {
-    User.find({}, (err, savedLocation) => {
+    User.find({_id: req.session.userId}, (err, savedLocation) => {
         res.render('saved.ejs', {
             user: savedLocation
-        })
-    })
-})
+        });
+    });
+});
 
 //changed this for save,, wip still need to work on this route and uncomment
 router.post('/locations/saved', (req, res) => {
     User.findOneAndUpdate({_id: req.session.userId}, {$push: {locations: req.body.locations}}, (err, savedLocation) => {
         if(err){
-            console.log(err)
+            console.log(err);
         }
-        res.redirect('/locations/saved')
+        res.redirect('/locations/saved');
     })
 });
 
@@ -49,8 +50,8 @@ router.post('/locations/saved', (req, res) => {
 router.post('/signup', (req, res) => {
     let error = null;
     if(req.body.password !== req.body.confirmPass){
-        error = 'passwords must match'
-        return res.render('signup.ejs', {error})
+        error = 'passwords must match';
+        return res.render('signup.ejs', {error});
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
