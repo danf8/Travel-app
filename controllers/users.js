@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const Locations = require('./locations');
-const user = require('../models/user');
+// const user = require('../models/user');
 
 
 // induces
@@ -32,13 +32,12 @@ router.get('/locations/saved', (req, res) => {
         res.render('saved.ejs', {
             user: savedLocation
         })
-
     })
 })
 
 //changed this for save,, wip still need to work on this route and uncomment
 router.post('/locations/saved', (req, res) => {
-    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locations: req.body}}, (err, savedLocation) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locations: req.body.locations}}, (err, savedLocation) => {
         if(err){
             console.log(err)
         }
@@ -55,6 +54,8 @@ router.post('/signup', (req, res) => {
     }
 
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+    const hashedConfirmPass = bcrypt.hashSync(req.body.confirmPass, 10);
+    req.body.confirmPass = hashedConfirmPass;
     req.body.password = hashedPassword;
     User.create(req.body, (err, newUser) => {
         req.session.userId = newUser._id;

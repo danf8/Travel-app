@@ -7,8 +7,9 @@
 <body>
     <h1>Saved Locations</h1>
     <% user.forEach(users => { %>
-        <p><%= users.locations %></p>
+        <% users.locations.forEach(location => { %>
+            <p><%= location %></p>
+       <% }) %>
   <%  }) %>
-
 </body>
 </html>
