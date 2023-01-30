@@ -39,3 +39,7 @@ svg {
     top: 5px;
     opacity: 0;
 }
+.submit {
+    background-color: #6366f1;
+    color: white;
+}

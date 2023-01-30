@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-// const user = require('../models/user');
-// const Locations = require('./locations');
-// const { db } = require('../models/user');
-// const user = require('../models/user');
+
+//need user dates and notes in shcema
+// need add notes link on save page
+//need add new user notes page
+//need show user notes page
+
 
 
 // induces

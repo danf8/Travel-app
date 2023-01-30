@@ -81,3 +81,8 @@ svg {
     top: 10px;
     opacity: 0;
 }
+
+.edit {
+    background-color: #6366f1;
+    color: white;
+}

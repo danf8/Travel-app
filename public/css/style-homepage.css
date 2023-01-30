@@ -8,10 +8,13 @@ body {
 }
 
 nav{
-    font-size: 18px;
-    margin: 10px 0 0 10px;
+    font-size: 22px;
+    margin: 30px 0 0 10px;
     color: rgb(21, 132, 223);
-    padding-left: 10px;
+    text-align: center;
+}
+a {
+    margin: 0 10px 0 10px;
 }
 h1{
     text-align: center;

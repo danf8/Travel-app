@@ -68,3 +68,8 @@ nav {
     right: 30px;
     opacity: 0;
 }
+
+.submit {
+    background-color: #6366f1;
+    color: white;
+}
