@@ -11,15 +11,13 @@
         <a href="/locations">Return to Homepage</a>
     </nav>
     <h1>Saved Locations</h1>
-
     <% for(let i = 0; i < user[0].locationsName.length; i++) { %>
     <div>
       <a href="/locations/<%=user[0].locationsId[i] %>"><p><%= user[0].locationsName[i] %></p></a> 
         <div>
-          <form action="/locations/update/<%= user[0].locationsId[i] %>?_method=PUT" method="POST">
-
-            <input type="text" name="" >
-            <input type="text" name="" value="">
+          <form action="/locations/update/<%= user[0]._id %>?_method=PUT" method="POST">
+            <input type="text" name="locationsName" value="<%= user[0].locationsName[i] %>" hidden>
+            <input type="text" name="locationsId" value="<%= user[0].locationsId[i] %>" hidden >
               <input type="submit" value="Remove" class="btn" >
           </form>
         </div>

@@ -40,18 +40,16 @@ router.get('/locations/saved', (req, res) => {
     });
 });
 
-//working on update route
-// router.put('/locations/update/:id', (req, res) => {
-//     User.findByIdAndUpdate(req.params.id, req.body, (err, updatedSave) => {
-//         console.log(req.params.id)
-//         console.log(req.body)
-//         res.redirect('/locations/saved')
-//     })
-// })
+//update user locations array
+router.put('/locations/update/:id', (req, res) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$pull: {locationsName: req.body.locationsName, locationsId: req.body.locationsId}}, (err, updatedSave) => {
+        res.redirect('/locations/saved')
+    })
+})
 
 //create new saved location
 router.post('/locations/saved', (req, res) => {
-    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locationsName: req.body.locations, locationsId: req.body.locationsId}}, (err, savedLocation) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$addToSet: {locationsName: req.body.locations, locationsId: req.body.locationsId}}, (err, savedLocation) => {
         if(err){
             console.log(err);
         }
