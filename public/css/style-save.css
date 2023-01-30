@@ -1,6 +1,7 @@
 /* Css for saved page */
 h1 {
-    color: red;
+
+    text-align: center;
 }
 
 nav{
@@ -18,9 +19,22 @@ svg {
     height: 24px;
     width: 24px;
 }
+div{
+    text-align: center;
+    font-size: 18px;
+    margin-top: 50px;
+}
 
 .logout {
     position: absolute;
     right: 30px;
     top: 5px;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
 }

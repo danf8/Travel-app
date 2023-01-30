@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+// const user = require('../models/user');
 // const Locations = require('./locations');
 // const { db } = require('../models/user');
 // const user = require('../models/user');
@@ -39,9 +40,18 @@ router.get('/locations/saved', (req, res) => {
     });
 });
 
-//changed this for save,, wip still need to work on this route and uncomment
+//working on update route
+// router.put('/locations/update/:id', (req, res) => {
+//     User.findByIdAndUpdate(req.params.id, req.body, (err, updatedSave) => {
+//         console.log(req.params.id)
+//         console.log(req.body)
+//         res.redirect('/locations/saved')
+//     })
+// })
+
+//create new saved location
 router.post('/locations/saved', (req, res) => {
-    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locations: req.body.locations}}, (err, savedLocation) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$push: {locationsName: req.body.locations, locationsId: req.body.locationsId}}, (err, savedLocation) => {
         if(err){
             console.log(err);
         }

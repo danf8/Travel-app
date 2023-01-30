@@ -14,10 +14,9 @@
     <h1>You are viewing: <%= location.name %></h1>
     <div>
         <img src="<%= location.img %>" alt="You are viewing an image of <%= location.name %>">
-        <!-- changed this for save -->
         <form action="/locations/saved?_method=POST" method="POST"> 
-            <input type="text" name="locations" value="<%= location.name %>" hidded>
-            <input type="text" name="locations" value="<%= location._id %>">
+            <input type="text" name="locations" value="<%= location.name %>" hidden>
+            <input type="text" name="locationsId" value="<%= location._id %>" hidden>
             <input type="submit" value="Save This Destination" class="btn ">
         </form>
     </div>

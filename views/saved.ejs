@@ -11,11 +11,21 @@
         <a href="/locations">Return to Homepage</a>
     </nav>
     <h1>Saved Locations</h1>
-    <% user.forEach(users => { %>
-        <% users.locations.forEach(location => { %>    
-            <a href="/locations/<%= location[1] %>"><p><%= location[0] %></p></a>
-       <% }) %>
-  <%  }) %>
+
+    <% for(let i = 0; i < user[0].locationsName.length; i++) { %>
+    <div>
+      <a href="/locations/<%=user[0].locationsId[i] %>"><p><%= user[0].locationsName[i] %></p></a> 
+        <div>
+          <form action="/locations/update/<%= user[0].locationsId[i] %>?_method=PUT" method="POST">
+
+            <input type="text" name="" >
+            <input type="text" name="" value="">
+              <input type="submit" value="Remove" class="btn" >
+          </form>
+        </div>
+    </div>
+ <% } %> 
+
   <%- include('./partials/footer') %>
 </body>
 </html>

@@ -5,7 +5,8 @@ const userSchema = new Schema({
     email: {type: String, required: true, unique: true, lowercase: true},
     password: {type: String, required: true},
     confirmPass: {type: String, required: true},
-    locations: [],
+    locationsName: [],
+    locationsId: [],
     // changed this for save
 }, {
     timestamps: true,
