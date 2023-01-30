@@ -46,7 +46,6 @@ width: 210px;
 }
 
 .footer{
-    position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 8px;
@@ -67,4 +66,5 @@ nav {
 .logout {
     position: absolute;
     right: 30px;
+    opacity: 0;
 }

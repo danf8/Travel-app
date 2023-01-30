@@ -32,7 +32,6 @@ form {
 }
 
 .footer{
-    position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 8px;
@@ -49,4 +48,5 @@ svg {
     position: absolute;
     right: 30px;
     top: 5px;
+    opacity: 0;
 }

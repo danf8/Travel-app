@@ -29,6 +29,7 @@ div{
     position: absolute;
     right: 30px;
     top: 5px;
+    opacity: 0;
 }
 
 .footer{

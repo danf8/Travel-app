@@ -68,7 +68,7 @@ svg {
 }
 
 .footer{
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
     font-size: 10px;
@@ -78,4 +78,6 @@ svg {
 .logout {
     position: absolute;
     right: 30px;
+    top: 10px;
+    opacity: 0;
 }
