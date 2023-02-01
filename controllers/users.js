@@ -24,7 +24,8 @@ router.get('/logout', (req, res) => {
     });
 });
 
-//Get saved locations page
+
+//get saved locations page
 router.get('/locations/saved', (req, res) => {
     User.find({_id: req.session.userId}, (err, savedLocation) => {
         if(!req.session.userId) {
@@ -36,8 +37,8 @@ router.get('/locations/saved', (req, res) => {
     });
 });
 
-//update saved list --- put
-router.put('/locations/update/:id', (req, res) => {
+//update saved list --put
+    router.put('/locations/update/:id', (req, res) => {
         User.findOneAndUpdate({_id: req.session.userId}, {$pull: {savedLocations: {_id: req.params.id}}}, {new: true, useFindAndModify: false}, (err, updatedSave) => {
             res.redirect('/locations/saved');
         });
@@ -50,9 +51,9 @@ router.post('/locations/saved', (req, res) => {
             console.log(err);
         }
         res.redirect('/locations/saved');
-
-    })
+    });
 });
+
 
 //handle form submission --CREATE
 router.post('/signup', (req, res) => {
@@ -72,6 +73,7 @@ router.post('/signup', (req, res) => {
     });
 });
 
+
 // handle form submission -- create
 router.post('/login', (req, res) => {
     const error = 'Incorrect Login Information.'
@@ -89,9 +91,11 @@ router.post('/login', (req, res) => {
 
 });
 
-// Show -- get user locations id
-router.get('/locations/saved/:id', (req, res) => {
+
+//show -- get user locations
+router.get('/locations/saved/:indexOf', (req, res) => {
     User.findById({_id: req.session.userId}, (err, savedLocation) => {
+        savedLocation = savedLocation.savedLocations[req.params.indexOf]
         res.render('plans.ejs', {
             user: savedLocation,
         });

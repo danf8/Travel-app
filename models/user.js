@@ -5,10 +5,6 @@ const userSchema = new Schema({
     email: {type: String, required: true, unique: true, lowercase: true},
     password: {type: String, required: true},
     confirmPass: {type: String, required: true},
-    // locationsName: [String],
-    // locationsId: [String],
-    // travelPlan: [String],
-    // travelDate: [String],
     savedLocations: [{
         locationsName: String,
         locationsId: String,

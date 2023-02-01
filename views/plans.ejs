@@ -8,9 +8,21 @@
     <nav>
         <!-- <%- include('./partials/nav') %> -->
     </nav>
-    <h1>Viewing Plans For:</h1>
-
-
+    <h1>Viewing Plans For: <%= user.locationsName %></h1>
+    <p>Your plans so far</p>
+    <div>
+        <ul>
+            <% for (let i = 0; i < user.travelPlan.length; i++){ %>
+                <li>
+                    <%= user.travelPlan[i]%>
+                </li>
+                <li>
+                    <%= user.travelDate[i] %>
+                </li>
+           <% } %>
+        </ul>
+        <a href=""><button class="btn">Add to Your Plans</button></a>
+    </div>
     <%- include('./partials/footer') %>
 </body>
 </html>
