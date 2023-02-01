@@ -15,7 +15,7 @@
     <div>
         <img src="<%= location.img %>" alt="You are viewing an image of <%= location.name %>">
         <form action="/locations/saved?_method=POST" method="POST"> 
-            <input type="text" name="locations" value="<%= location.name %>" hidden>
+            <input type="text" name="locationsName" value="<%= location.name %>" hidden>
             <input type="text" name="locationsId" value="<%= location._id %>" hidden>
             <input type="submit" value="Save This Destination" class="save btn ">
         </form>

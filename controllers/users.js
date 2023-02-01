@@ -3,12 +3,6 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-//need user dates and notes in shcema
-// need add notes link on save page
-//need add new user notes page
-//need show user notes page
-
-
 
 // induces
 
@@ -37,25 +31,26 @@ router.get('/locations/saved', (req, res) => {
          return res.redirect('/');
         }
         res.render('saved.ejs', {
-            user: savedLocation
+            user: savedLocation,
         });
     });
 });
 
-//update user locations array
+//update saved list --- put
 router.put('/locations/update/:id', (req, res) => {
-    User.findOneAndUpdate({_id: req.session.userId}, {$pull: {locationsName: req.body.locationsName, locationsId: req.body.locationsId}}, (err, updatedSave) => {
-        res.redirect('/locations/saved')
-    })
-})
+        User.findOneAndUpdate({_id: req.session.userId}, {$pull: {savedLocations: {_id: req.params.id}}}, {new: true, useFindAndModify: false}, (err, updatedSave) => {
+            res.redirect('/locations/saved');
+        });
+    });
 
-//create new saved location
+//create saved location
 router.post('/locations/saved', (req, res) => {
-    User.findOneAndUpdate({_id: req.session.userId}, {$addToSet: {locationsName: req.body.locations, locationsId: req.body.locationsId}}, (err, savedLocation) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$addToSet: {savedLocations: req.body}}, (err, savedLocation) => {
         if(err){
             console.log(err);
         }
         res.redirect('/locations/saved');
+
     })
 });
 
@@ -77,7 +72,6 @@ router.post('/signup', (req, res) => {
     });
 });
 
-
 // handle form submission -- create
 router.post('/login', (req, res) => {
     const error = 'Incorrect Login Information.'
@@ -95,8 +89,14 @@ router.post('/login', (req, res) => {
 
 });
 
-
-
+// Show -- get user locations id
+router.get('/locations/saved/:id', (req, res) => {
+    User.findById({_id: req.session.userId}, (err, savedLocation) => {
+        res.render('plans.ejs', {
+            user: savedLocation,
+        });
+    });
+});
 
 
 module.exports = router

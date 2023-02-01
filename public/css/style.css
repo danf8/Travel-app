@@ -54,8 +54,9 @@ input{
 }
 
 .edit{
-    color: black;
     margin-right: 50px;
+    background-color: #6366f1;
+    color: white;
 }
 
 svg {
@@ -68,7 +69,6 @@ svg {
 }
 
 .footer{
-    /* position: fixed; */
     bottom: 0;
     width: 100%;
     font-size: 10px;
@@ -82,7 +82,3 @@ svg {
     opacity: 0;
 }
 
-.edit {
-    background-color: #6366f1;
-    color: white;
-}

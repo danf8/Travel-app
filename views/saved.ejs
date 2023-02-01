@@ -1,3 +1,4 @@
+<!-- remember to remove the commentted section below -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +12,17 @@
         <a href="/locations">Return to Homepage</a>
     </nav>
     <h1>Saved Locations</h1>
-    <% for(let i = 0; i < user[0].locationsName.length; i++) { %>
-    <div>
-      <a href="/locations/<%=user[0].locationsId[i] %>"><p><%= user[0].locationsName[i] %></p></a> 
-        <div>
-          <form action="/locations/update/<%= user[0]._id %>?_method=PUT" method="POST">
-            <input type="text" name="locationsName" value="<%= user[0].locationsName[i] %>" hidden>
-            <input type="text" name="locationsId" value="<%= user[0].locationsId[i] %>" hidden >
-              <input type="submit" value="Remove" class="btn btn-danger" >
+    <% for( let i = 0; i < user[0].savedLocations.length; i++ ) { %>
+      <div>
+        <a href=""><p><%= user[0].savedLocations[i].locationsName %></p></a>
+        <div class="addRemove">
+          <a href=""><button class="view btn">View your Plans</button></a>
+          <form action="/locations/update/<%= user[0].savedLocations[i]._id %>?_method=PUT" method="POST">
+            <input type="submit" value="Remove" class="remove btn btn-danger">
           </form>
         </div>
-    </div>
- <% } %> 
+      </div>
+   <% } %>
 
   <%- include('./partials/footer') %>
 </body>

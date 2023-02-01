@@ -1,6 +1,5 @@
 /* Css for saved page */
 h1 {
-
     text-align: center;
 }
 
@@ -20,9 +19,11 @@ svg {
     width: 24px;
 }
 div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     font-size: 18px;
-    margin-top: 50px;
 }
 
 .logout {
@@ -39,6 +40,17 @@ div{
     font-size: 12px;
     text-align: center;
 }
-.btn {
-    margin-top: -50px;
+.addRemove {
+    display: flex;
+    flex-direction: row;
+}
+
+.remove {
+    margin-left: 10px;
+    margin-bottom: 25px;
+}
+
+.view{
+    background-color: #6366f1;
+    color: white;
 }
