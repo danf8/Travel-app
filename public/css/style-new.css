@@ -1,5 +1,5 @@
-/* style sheet for new page */
-body{
+
+body {
     text-align: center;
 }
 
@@ -10,7 +10,7 @@ form {
     margin-top: 50px;
 }
 
-nav{
+nav {
     text-align: left;
     background-color: rgb(227, 225, 218);
     height: 50px;
@@ -18,7 +18,7 @@ nav{
     padding-left: 10px;
 }
 
-.footer{
+.footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -39,6 +39,7 @@ svg {
     top: 5px;
     opacity: 0;
 }
+
 .submit {
     background-color: #6366f1;
     color: white;

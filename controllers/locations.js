@@ -66,5 +66,4 @@ router.get('/locations/:id', (req, res) => {
     });
 });
 
-
 module.exports = router;

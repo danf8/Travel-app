@@ -12,7 +12,7 @@ const session = require('express-session');
 const app = express();
 
 //config application settings
-require('dotenv').config()
+require('dotenv').config();
 const PORT = process.env.PORT;
 const DATABASE_URL = process.env.DATABASE_URL;
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('./partials/head') %>
     <link rel="stylesheet" href="/css/style-edit.css">
     <title>Edit Location</title>
 </head>
+
 <body>
     <nav>
         <a href="/locations/<%= location._id %>"><button class="btn">Return to <%= location.name %></button></a>
@@ -26,6 +28,7 @@
             </div>
         </div>
     </form>
-    <%- include('./partials/footer') %> 
+    <%- include('./partials/footer') %>
 </body>
+
 </html>

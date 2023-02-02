@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
     <link rel="stylesheet" href="/css/users/style-plans.css">
     <title>Travel Plans</title>
 </head>
 <body>
     <nav>
-        <%- include('./partials/nav') %>
+        <%- include('../partials/nav') %>
         <a href="/locations/saved">Return to saved locations</a>
     </nav>
     <h1>Viewing Plans For: <%= user.locationsName %></h1>
@@ -22,7 +22,6 @@
                     <li class="trav-plan">
                        <%= user.travelPlan[i]%>
                    </li>
-
                </div>
            <% } %>
         </ul>
@@ -34,8 +33,6 @@
            <input type="hidden" name="locationIndex" value="<%= locationIndex %>" >
         <input type="submit" value="submit" class="btn btn-primary">
     </form>
-
-
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
 </body>
 </html>

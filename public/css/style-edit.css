@@ -1,4 +1,4 @@
-/* style for edit page */
+
 h1 {
     text-align: center;
 }
@@ -20,12 +20,13 @@ p {
     margin-top: 15px;
     margin-left: 15px;
 }
+
 .form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-input{
+input {
     margin-left: 10px;
     align-items: right;
     width: 200px;
@@ -45,7 +46,7 @@ width: 210px;
     width: 180px;
 }
 
-.footer{
+.footer {
     bottom: 0;
     width: 100%;
     font-size: 8px;
@@ -59,6 +60,7 @@ svg {
     height: 24px;
     width: 24px;
 }
+
 nav {
     background-color: rgb(227, 225, 218);
 }

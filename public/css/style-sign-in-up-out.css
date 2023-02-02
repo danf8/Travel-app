@@ -7,28 +7,30 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
 }
+
 h1 {
     text-align: center;
     color: antiquewhite;
 }
 
-form{
+form {
     display: flex;
-flex-direction: column;
-margin-top: 350px;
-margin-right: 270px;
-text-align: center;
+    flex-direction: column;
+    margin-top: 350px;  
+    margin-right: 270px;
+    text-align: center;
 }
 
-.btn-link{
+.btn-link {
     color: rgb(21, 132, 223);
     margin-left: 15px;
 }
+
 p {
     color: red;
 }
+
 .footer {
     position: absolute;
     bottom: 0;

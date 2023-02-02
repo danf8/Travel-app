@@ -7,17 +7,16 @@ const bcrypt = require('bcrypt');
 // induces
 
 //sign up users
-//provides signup form -index
 router.get('/signup', (req, res) => {
     res.render('signup.ejs' ,{error: null});
 });
 
-//login users -index
+//login users 
 router.get('/login', (req, res) => {
     res.render('login.ejs', {error: null});
 });
 
-//logtout users -index
+//logtout users 
 router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         res.redirect('/login');
@@ -31,18 +30,18 @@ router.get('/locations/saved', (req, res) => {
         if(!req.session.userId) {
          return res.redirect('/');
         }
-        res.render('saved.ejs', {
+        res.render('users/saved.ejs', {
             user: savedLocation,
         });
     });
 });
 
 //update saved list --put
-    router.put('/locations/update/:id', (req, res) => {
-        User.findOneAndUpdate({_id: req.session.userId}, {$pull: {savedLocations: {_id: req.params.id}}}, {new: true, useFindAndModify: false}, (err, updatedSave) => {
-            res.redirect('/locations/saved');
-        });
+router.put('/locations/update/:id', (req, res) => {
+    User.findOneAndUpdate({_id: req.session.userId}, {$pull: {savedLocations: {_id: req.params.id}}}, {new: true, useFindAndModify: false}, (err, updatedSave) => {
+        res.redirect('/locations/saved');
     });
+});
 
 //create saved location
 router.post('/locations/saved', (req, res) => {
@@ -55,12 +54,11 @@ router.post('/locations/saved', (req, res) => {
 });
 
 router.post('/locations/saved/plans/:id', (req, res) => {
-    console.log(req.session.userId)
     User.findById(req.session.userId,(err, user) => {
         user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan)
         user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate)
         user.save((err) => {
-            res.redirect(`/locations/saved/${req.body.locationIndex}`)
+            res.redirect(`/locations/saved/${req.body.locationIndex}`);
         });
     });
 });
@@ -91,22 +89,20 @@ router.post('/login', (req, res) => {
         if(!userFound) {
             return res.render('login.ejs', {error});
         }
-        const confirmedPass = bcrypt.compareSync(req.body.password, userFound.password)
+        const confirmedPass = bcrypt.compareSync(req.body.password, userFound.password);
         if(!confirmedPass) {
             return res.render('login.ejs', {error});
         }
         req.session.userId = userFound._id;
         res.redirect('/locations');
     });
-
 });
-
 
 //show -- get user locations
 router.get('/locations/saved/:indexOf', (req, res) => {
     User.findById({_id: req.session.userId}, (err, savedLocation) => {
-        savedLocation = savedLocation.savedLocations[req.params.indexOf]
-        res.render('plans.ejs', {
+        savedLocation = savedLocation.savedLocations[req.params.indexOf];
+        res.render('users/plans.ejs', {
             user: savedLocation,
             locationIndex: req.params.indexOf
         });
