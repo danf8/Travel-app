@@ -54,22 +54,13 @@ router.post('/locations/saved', (req, res) => {
     });
 });
 
-
-//create travel plan -- post
-// router.post('/locations/saved/plans/:id', (req, res) => {
-//     console.log(req.session.userId)
-//     User.findOneAndUpdate({_id: req.session.userId}, {$push: {savedLocations: {_id: req.params.id}}}, (err, savedLocation) => {
-//         res.redirect('/locations/saved')
-//     })
-// })
-
 router.post('/locations/saved/plans/:id', (req, res) => {
     console.log(req.session.userId)
     User.findById(req.session.userId,(err, user) => {
         user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan)
         user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate)
         user.save((err) => {
-            res.redirect('/locations/saved')
+            res.redirect(`/locations/saved/${req.body.locationIndex}`)
         });
     });
 });

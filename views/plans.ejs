@@ -2,31 +2,37 @@
 <html lang="en">
 <head>
     <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/users/style-plans.css">
     <title>Travel Plans</title>
 </head>
 <body>
     <nav>
-        <!-- <%- include('./partials/nav') %> -->
+        <%- include('./partials/nav') %>
+        <a href="/locations/saved">Return to saved locations</a>
     </nav>
     <h1>Viewing Plans For: <%= user.locationsName %></h1>
-    <p>Your plans so far</p>
     <div>
+        <h4>Your plans so far</h4>
         <ul>
             <% for (let i = 0; i < user.travelPlan.length; i++){ %>
-                <li>
-                    <%= user.travelPlan[i]%>
-                </li>
-                <li>
-                    <%= user.travelDate[i] %>
-                </li>
+               <div class="plans">
+                   <li class="trav-date">
+                       <%= user.travelDate[i] %>
+                    </li>
+                    <li class="trav-plan">
+                       <%= user.travelPlan[i]%>
+                   </li>
+
+               </div>
            <% } %>
         </ul>
     </div>
     <form action="/locations/saved/plans/<%= user._id %>?_method=POST" method="POST">
-        Plan: <input type="text" name="travelPlan">
-        Date: <input type="text" name="travelDate">
-        <input type="hidden" name="locationIndex" value="<%= locationIndex %>" >
-        <input type="submit" value="submit">
+           <label>Add Plan</label> <br>
+           Plan: <input type="text" name="travelPlan">
+           Date: <input type="text" name="travelDate" placeholder="dd/mm/yy">
+           <input type="hidden" name="locationIndex" value="<%= locationIndex %>" >
+        <input type="submit" value="submit" class="btn btn-primary">
     </form>
 
 

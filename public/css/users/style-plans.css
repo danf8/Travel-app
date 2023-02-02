@@ -1,0 +1,69 @@
+h1 {
+    text-align: center;
+}
+
+nav{
+    text-align: left;
+    background-color: rgb(227, 225, 218);
+    height: 50px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+
+div {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-style: helvetica;
+    margin-top: 15px;
+}
+h4 {
+    text-align: center;
+
+}
+
+ul{
+    list-style: none;
+}
+.trav-date {
+    width: 75px;
+}
+.trav-plan {
+    width: 350px;
+}
+.plans {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px 20px;
+}
+
+svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 24px;
+    width: 24px;
+}
+form {
+   margin-top: 75px;
+   text-align: center;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+.logout {
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    opacity: 0;
+}
+
+input {
+    padding: 6px 12px;
+}
