@@ -21,8 +21,15 @@
                 </li>
            <% } %>
         </ul>
-        <a href=""><button class="btn">Add to Your Plans</button></a>
     </div>
+    <form action="/locations/saved/plans/<%= user._id %>?_method=POST" method="POST">
+        Plan: <input type="text" name="travelPlan">
+        Date: <input type="text" name="travelDate">
+        <input type="hidden" name="locationIndex" value="<%= locationIndex %>" >
+        <input type="submit" value="submit">
+    </form>
+
+
     <%- include('./partials/footer') %>
 </body>
 </html>

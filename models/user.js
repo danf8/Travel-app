@@ -8,8 +8,8 @@ const userSchema = new Schema({
     savedLocations: [{
         locationsName: String,
         locationsId: String,
-        travelPlan: [String],
-        travelDate: [String]
+        travelPlan: [],
+        travelDate: []
     }]
 }, {
     timestamps: true,
