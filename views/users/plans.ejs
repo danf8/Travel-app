@@ -12,19 +12,23 @@
     </nav>
     <h1>Viewing Plans For: <%= user.locationsName %></h1>
     <div>
-        <h4>Your plans so far</h4>
-        <ul>
-            <% for (let i = 0; i < user.travelPlan.length; i++){ %>
-               <div class="plans">
-                   <li class="trav-date">
-                       <%= user.travelDate[i] %>
-                    </li>
-                    <li class="trav-plan">
-                       <%= user.travelPlan[i]%>
-                   </li>
-               </div>
-           <% } %>
-        </ul>
+    <% if ( user.travelPlan.length > 0 ) { %>
+        <h4>Your Plans so Far</h4> 
+        <%  } else { %>
+        <h4>No plans Added Yet</h4> 
+    <% }; %>
+    <ul>
+        <% for (let i = 0; i < user.travelPlan.length; i++){ %>
+            <div class="plans">
+                <li class="trav-date">
+                    <%= user.travelDate[i] %>
+                </li>
+                <li class="trav-plan">
+                    <%= user.travelPlan[i]%>
+                </li>
+            </div>
+        <% } %>
+     </ul>
     </div>
     <form action="/locations/saved/plans/<%= user._id %>?_method=POST" method="POST">
            <label>Add Plan</label> <br>
