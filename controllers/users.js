@@ -3,9 +3,6 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
-
-// induces
-
 //sign up users
 router.get('/signup', (req, res) => {
     res.render('signup.ejs' ,{error: null});
@@ -22,7 +19,6 @@ router.get('/logout', (req, res) => {
         res.redirect('/login');
     });
 });
-
 
 //get saved locations page
 router.get('/locations/saved', (req, res) => {
@@ -53,6 +49,7 @@ router.post('/locations/saved', (req, res) => {
     });
 });
 
+// create new travel plan
 router.post('/locations/saved/plans/:id', (req, res) => {
     User.findById(req.session.userId,(err, user) => {
         user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan)
@@ -80,7 +77,6 @@ router.post('/signup', (req, res) => {
         res.redirect('/locations');
     });
 });
-
 
 // handle form submission -- create
 router.post('/login', (req, res) => {

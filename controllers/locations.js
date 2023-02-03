@@ -59,6 +59,7 @@ router.get('/locations/:id/edit', (req, res) => {
 
 // Show- GET location/:id
 router.get('/locations/:id', (req, res) => {
+    console.log(req.session)
     Location.findById(req.params.id, (err, foundLocation) => {
         res.render('show.ejs', {
             location: foundLocation,
