@@ -11,11 +11,11 @@
     </nav>
     <h1>Login to Travel Application</h1>
     <form action="/login" method="POST">
-        <% if(error) { %>
-            <p><%= error%></p>
-       <% } %>
-        <label>Email:<input type="email" name="email" required value="new1@email.com"></label>
-        <label>Password: <input type="password" name="password" required value="123"></label>
+        <% if ( error ) { %>
+            <p><%= error %></p>
+       <% }; %>
+        <label>Email:<input type="email" name="email" required></label>
+        <label>Password: <input type="password" name="password" required></label>
         <label><input type="submit" value="Login"></label>
     </form>
     <%- include('./partials/footer') %>

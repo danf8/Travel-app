@@ -3,7 +3,6 @@ const router = express.Router();
 const data = require('../data');
 const Location = require('../models/location');
 
-
 //seed data
 router.get('/locations/seed', (req, res) => {
     Location.deleteMany({}, (err, results) => {
@@ -59,7 +58,6 @@ router.get('/locations/:id/edit', (req, res) => {
 
 // Show- GET location/:id
 router.get('/locations/:id', (req, res) => {
-    console.log(req.session)
     Location.findById(req.params.id, (err, foundLocation) => {
         res.render('show.ejs', {
             location: foundLocation,

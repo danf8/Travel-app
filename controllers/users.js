@@ -23,8 +23,8 @@ router.get('/logout', (req, res) => {
 //get saved locations page
 router.get('/locations/saved', (req, res) => {
     User.find({_id: req.session.userId}, (err, savedLocation) => {
-        if(!req.session.userId) {
-         return res.redirect('/');
+        if ( !req.session.userId ) {
+            return res.redirect('/');
         }
         res.render('users/saved.ejs', {
             user: savedLocation,
@@ -42,7 +42,7 @@ router.put('/locations/update/:id', (req, res) => {
 //create saved location
 router.post('/locations/saved', (req, res) => {
     User.findOneAndUpdate({_id: req.session.userId}, {$addToSet: {savedLocations: req.body}}, (err, savedLocation) => {
-        if(err){
+        if ( err ) {
             console.log(err);
         }
         res.redirect('/locations/saved');
@@ -52,8 +52,8 @@ router.post('/locations/saved', (req, res) => {
 // create new travel plan
 router.post('/locations/saved/plans/:id', (req, res) => {
     User.findById(req.session.userId,(err, user) => {
-        user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan)
-        user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate)
+        user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan);
+        user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate);
         user.save((err) => {
             res.redirect(`/locations/saved/${req.body.locationIndex}`);
         });
@@ -63,7 +63,7 @@ router.post('/locations/saved/plans/:id', (req, res) => {
 //handle form submission --CREATE
 router.post('/signup', (req, res) => {
     let error = null;
-    if(req.body.password !== req.body.confirmPass){
+    if ( req.body.password !== req.body.confirmPass) {
         error = 'passwords must match';
         return res.render('signup.ejs', {error});
     }
@@ -82,11 +82,11 @@ router.post('/signup', (req, res) => {
 router.post('/login', (req, res) => {
     const error = 'Incorrect Login Information.'
     User.findOne({email: req.body.email}, (err, userFound) => {
-        if(!userFound) {
+        if ( !userFound ) {
             return res.render('login.ejs', {error});
         }
         const confirmedPass = bcrypt.compareSync(req.body.password, userFound.password);
-        if(!confirmedPass) {
+        if ( !confirmedPass ) {
             return res.render('login.ejs', {error});
         }
         req.session.userId = userFound._id;
