@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const locationSchema = new Schema({
     name: {type: String, required: true},
-    img: String,
+    img: {type: String, required: true},
     description: String,
     hotels: String,
     attractions: String,

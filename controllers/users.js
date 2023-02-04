@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
+require('dotenv').config();
+const API_KEY = process.env.API_KEY
+
 //sign up users
 router.get('/signup', (req, res) => {
     res.render('signup.ejs' ,{error: null});
@@ -98,12 +101,15 @@ router.post('/login', (req, res) => {
 router.get('/locations/saved/:indexOf', (req, res) => {
     User.findById({_id: req.session.userId}, (err, savedLocation) => {
         savedLocation = savedLocation.savedLocations[req.params.indexOf];
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+savedLocation.locationsName+"&units=imperial&appID="+API_KEY)
+        .then((response) => response.json())
+        .then((data) => 
         res.render('users/plans.ejs', {
             user: savedLocation,
-            locationIndex: req.params.indexOf
-        });
+            locationIndex: req.params.indexOf,
+            data: data
+        }));
     });
 });
-
 
 module.exports = router

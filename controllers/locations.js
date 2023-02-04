@@ -3,6 +3,8 @@ const router = express.Router();
 const data = require('../data');
 const Location = require('../models/location');
 
+require('dotenv').config();
+const API_KEY = process.env.API_KEY
 //seed data
 router.get('/locations/seed', (req, res) => {
     Location.deleteMany({}, (err, results) => {
@@ -59,9 +61,12 @@ router.get('/locations/:id/edit', (req, res) => {
 // Show- GET location/:id
 router.get('/locations/:id', (req, res) => {
     Location.findById(req.params.id, (err, foundLocation) => {
-        res.render('show.ejs', {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q="+foundLocation.name+"&units=imperial&appID="+API_KEY)
+        .then((response) => response.json())
+        .then((data) =>  res.render('show.ejs', {
             location: foundLocation,
-        });
+            data: data
+        }));
     });
 });
 

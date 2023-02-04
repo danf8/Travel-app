@@ -10,7 +10,9 @@
         <%- include('../partials/nav') %>
         <a href="/locations/saved">Return to saved locations</a>
     </nav>
-    <h1>Viewing Plans For: <%= user.locationsName %></h1>
+    <h1><%= user.locationsName %></h1>
+    <p>Current Temperature: <%= data.main.temp %></p>
+    <p>Weather Conditions: <%= data.weather[0].main %></p>
     <div>
     <% if ( user.travelPlan.length > 0 ) { %>
         <h4>Your Plans so Far</h4> 

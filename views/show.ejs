@@ -11,7 +11,7 @@
         <a href="/locations"><button class="btn">Return to Locations</button></a>
         <%- include('./partials/nav') %>
     </nav>
-    <h1>You are viewing: <%= location.name %></h1>
+    <h1><%= location.name %></h1>
     <div>
         <img src="<%= location.img %>" alt="You are viewing an image of <%= location.name %>">
         <form action="/locations/saved?_method=POST" method="POST"> 
@@ -21,8 +21,10 @@
         </form>
     </div>
     <p><%= location.description %></p>
-    <p>Hotel you chose: <%= location.hotels %></p>
+    <p>Hotels: <%= location.hotels %></p>
     <p>Attractions: <%= location.attractions %></p>
+    <p>Current Temperature: <%= data.main.temp %></p>
+    <p>Weather Conditions: <%= data.weather[0].main %></p>
     <%- include('./partials/footer') %>
 </body>
 </html>

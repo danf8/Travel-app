@@ -1,8 +1,6 @@
 // require dependencies
 const express = require('express');
 const mongoose = require('mongoose');
-const Location = require('./models/location');
-const data = require('./data');
 const methodOverride = require('method-override');
 const locationsRouter = require('./controllers/locations');
 const usersRouter = require('./controllers/users');
