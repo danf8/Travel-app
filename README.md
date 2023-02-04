@@ -27,6 +27,8 @@
     * On saved list you can plan out your trip.
     * Only you can view your planned list
 
+Click here to visit[LINK](https://travel-app-1.herokuapp.com/)
+
 ##Future Enhancemenets 
 * Ability for users to remove plans that have been added
 * Disable save button once user has added location to their saved list
