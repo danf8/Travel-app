@@ -1,3 +1,11 @@
+body {
+    background: url('https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 h1 {
     text-align: center;
 }
@@ -8,10 +16,10 @@ p {
 
 nav{
     text-align: left;
-    background-color: rgb(227, 225, 218);
     height: 50px;
     padding-top: 5px;
     padding-left: 10px;
+    color: rgb(21, 132, 223);
 }
 
 div {

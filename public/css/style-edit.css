@@ -1,6 +1,14 @@
+body {
+    background: url('https://images.pexels.com/photos/12969338/pexels-photo-12969338.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 h1 {
     text-align: center;
+    color: black;
 }
 
 form {
@@ -19,6 +27,9 @@ img {
 p {
     margin-top: 15px;
     margin-left: 15px;
+    color: rgb(21, 132, 223);
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .form {
@@ -30,6 +41,8 @@ input {
     margin-left: 10px;
     align-items: right;
     width: 200px;
+    color: black;
+    font-weight: normal;
 }
 
 .describe {
@@ -51,6 +64,7 @@ width: 210px;
     width: 100%;
     font-size: 8px;
     text-align: center;
+    color: black;
 }
 
 svg {
@@ -62,7 +76,7 @@ svg {
 }
 
 nav {
-    background-color: rgb(227, 225, 218);
+    color: rgb(21, 132, 223);
 }
 
 .logout {
@@ -74,4 +88,5 @@ nav {
 .submit {
     background-color: #6366f1;
     color: white;
+    font-weight: 400;
 }

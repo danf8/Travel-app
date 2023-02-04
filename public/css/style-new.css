@@ -1,6 +1,11 @@
 
 body {
     text-align: center;
+    background: url('https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 form {
@@ -10,12 +15,18 @@ form {
     margin-top: 50px;
 }
 
+p {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+}
+
 nav {
     text-align: left;
-    background-color: rgb(227, 225, 218);
     height: 50px;
     padding-top: 5px;
     padding-left: 10px;
+    color: rgb(21, 132, 223);
 }
 
 .footer {
@@ -43,4 +54,5 @@ svg {
 .submit {
     background-color: #6366f1;
     color: white;
+    width: 150px;
 }

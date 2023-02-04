@@ -1,11 +1,19 @@
+body {
+    background: url('https://images.pexels.com/photos/4174168/pexels-photo-4174168.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 h1 {
     text-align: center;
+    color: white;
 }
 
 nav{
     text-align: left;
-    background-color: rgb(227, 225, 218);
+    color: rgb(21, 132, 223);
     height: 50px;
     padding-top: 5px;
     padding-left: 10px;
@@ -24,7 +32,11 @@ div{
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+p {
+    color: antiquewhite;
 }
 
 .logout {

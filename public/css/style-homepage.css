@@ -1,6 +1,6 @@
 
 body {
-    background: url('https://images.pexels.com/photos/2739013/pexels-photo-2739013.jpeg?auto=compress&cs=tinysrgb&w=900') no-repeat center fixed;
+    background: url('https://images.pexels.com/photos/2739013/pexels-photo-2739013.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -32,4 +32,20 @@ footer {
     font-size: 10px;
     text-align: center;
     color: grey ;
+}
+
+svg {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    height: 24px;
+    width: 24px;
+    margin-bottom: 15px;
+}
+
+.logout {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    opacity: 0;
 }

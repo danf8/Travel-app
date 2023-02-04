@@ -8,14 +8,13 @@
 <body>
     <nav>
         <%- include('../partials/nav') %>
-        <a href="/locations">Return to Homepage</a>
     </nav>
 
     <h1>Saved Locations</h1>
     <% for( let i = 0; i < user[0].savedLocations.length; i++ ) { %>
       <div>
         <% let locationIndex = i %>
-        <a href=""><p><%= user[0].savedLocations[i].locationsName %></p></a>
+        <p><%= user[0].savedLocations[i].locationsName %></p>
         <div class="add-remove">
           <a href="/locations/saved/<%= locationIndex %>"><button class="view btn">View your Plans</button></a>
           <form action="/locations/update/<%= user[0].savedLocations[i]._id %>?_method=PUT" method="POST">
