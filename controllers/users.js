@@ -58,7 +58,7 @@ router.post('/locations/saved/plans/:id', (req, res) => {
         user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan);
         user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate);
         user.save((err) => {
-            res.redirect(`/locations/saved/${req.body.locationIndex}`);
+            res.redirect(`/locations/saved/${req.body.locationIndex}`)
         });
     });
 });
@@ -70,7 +70,6 @@ router.post('/signup', (req, res) => {
         error = 'passwords must match';
         return res.render('signup.ejs', {error});
     }
-
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     const hashedConfirmPass = bcrypt.hashSync(req.body.confirmPass, 10);
     req.body.confirmPass = hashedConfirmPass;

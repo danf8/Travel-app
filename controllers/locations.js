@@ -19,7 +19,7 @@ router.get('/locations', (req, res) => {
     Location.find({}, (err, allLocations) => {
         res.render('index.ejs', {
             locations: allLocations,
-        });
+        })
     });
 });
 

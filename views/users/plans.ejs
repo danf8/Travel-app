@@ -6,12 +6,21 @@
     <title>Travel Plans</title>
 </head>
 <body>
+    <% let checkTemp; %>
+    <% let checkWeather; %>
+    <% if(data.cod == '404') { %>
+       <% checkTemp = 0; %>
+       <% checkWeather = 'Invalid Location Name'; %>
+   <% } else { %>
+    <% checkTemp =  data.main.temp; %>
+    <% checkWeather = data.weather[0].main;  %>
+  <% }; %>
     <nav>
         <%- include('../partials/nav') %>
     </nav>
     <h1><%= user.locationsName %></h1>
-    <p>Current Temperature: <%= data.main.temp %></p>
-    <p>Weather Conditions: <%= data.weather[0].main %></p>
+    <p>Current Temperature: <%= Math.round(checkTemp) %>°</p>
+    <p>Weather Conditions: <%= checkWeather %></p>
     <div>
     <% if ( user.travelPlan.length > 0 ) { %>
         <h4>Your Plans so Far</h4> 
@@ -33,8 +42,8 @@
     </div>
     <form action="/locations/saved/plans/<%= user._id %>?_method=POST" method="POST">
            <label>Add Plan</label> <br>
-           Plan: <input type="text" name="travelPlan">
-           Date: <input type="text" name="travelDate" placeholder="dd/mm/yy">
+           Plan: <input type="text" name="travelPlan" required>
+           Date: <input type="text" name="travelDate" placeholder="dd/mm/yy" required>
            <input type="hidden" name="locationIndex" value="<%= locationIndex %>" >
         <input type="submit" value="submit" class="btn btn-primary">
     </form>

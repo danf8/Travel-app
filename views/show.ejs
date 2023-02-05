@@ -6,6 +6,15 @@
     <title>Location</title>
 </head>
 <body>
+    <% let checkTemp; %>
+    <% let checkWeather; %>
+    <% if(data.cod == '404') { %>
+       <% checkTemp = 0; %>
+       <% checkWeather = 'Invalid Location Name'; %>
+   <% } else { %>
+    <%checkTemp =  data.main.temp; %>
+    <% checkWeather = data.weather[0].main;  %>
+  <% }; %>
     <nav>
         <a href="/locations/<%= location._id %>/edit"> <button class="edit btn ">Edit</button></a>
         <%- include('./partials/nav') %>
@@ -22,8 +31,8 @@
     <p><%= location.description %></p>
     <p>Hotels: <%= location.hotels %></p>
     <p>Attractions: <%= location.attractions %></p>
-    <p>Current Temperature: <%= data.main.temp %></p>
-    <p>Weather Conditions: <%= data.weather[0].main %></p>
+    <p>Current Temperature: <%= Math.round(checkTemp) %>°</p>
+    <p>Weather Conditions: <%= checkWeather %></p>
     <%- include('./partials/footer') %>
 </body>
 </html>

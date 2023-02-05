@@ -10,3 +10,4 @@ if (logout !== null) {
         logout.style.opacity = 0;
     });
 };
+

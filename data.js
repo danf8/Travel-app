@@ -1,7 +1,7 @@
 module.exports = [{
     name: 'Playa del Carmen',
     img: 'https://images.pexels.com/photos/12168652/pexels-photo-12168652.jpeg?auto=compress&cs=tinysrgb&w=800',
-    description: "Costal resourt town along the Caribbean shoreline",
+    description: "Costal resort town along the Caribbean shoreline",
     hotels: 'Hyatt',
     attractions: 'Mostly beaches',
 },{
