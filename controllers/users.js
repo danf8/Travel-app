@@ -75,6 +75,10 @@ router.post('/signup', (req, res) => {
     req.body.confirmPass = hashedConfirmPass;
     req.body.password = hashedPassword;
     User.create(req.body, (err, newUser) => {
+        if(err) {
+            error= 'email taken';
+            return res.render('signup.ejs', {error})
+        }
         req.session.userId = newUser._id;
         res.redirect('/locations');
     });

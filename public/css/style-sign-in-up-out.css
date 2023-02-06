@@ -2,7 +2,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background: url('https://images.pexels.com/photos/163185/old-retro-antique-vintage-163185.jpeg?auto=compress&cs=tinysrgb&w=900') no-repeat center fixed;
+    background: url('https://images.pexels.com/photos/7235893/pexels-photo-7235893.jpeg?auto=compress&cs=tinysrgb&w=1000') no-repeat center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -12,14 +12,12 @@ body {
 h1 {
     text-align: center;
     color: black
-
 }
 
 form {
     display: flex;
     flex-direction: column;
-    margin-top: 310px;  
-    margin-right: 270px;
+    margin-top: 50px;  
     text-align: center;
 }
 
