@@ -15,8 +15,9 @@
 
 ##Application Screenshots
 
-<img src ='./screenshots/travelapp-homepg.png' width= 500 height= 400>
-<img src ='./screenshots/travelapp-index.png' width= 500 height= 400>
+<img src ='./screenshots/home.png' width= '400' height= '300'>
+<img src ='./screenshots/index.png' width= '400' height= '300'>
+<img src ='./screenshots/saved.png' width= '400' height= '300'>
 
 ## Getting Started
 * Please create an account if you have not done so.
