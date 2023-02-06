@@ -16,7 +16,7 @@
 ##Application Screenshots
 
 <img src ='./screenshots/home.png' width= '400' height= '300'>
-<img src ='./screenshots/index.png' width= '400' height= '300'>
+<img src ='./screenshots/Index.png' width= '400' height= '300'>
 <img src ='./screenshots/saved.png' width= '400' height= '300'>
 
 ## Getting Started
