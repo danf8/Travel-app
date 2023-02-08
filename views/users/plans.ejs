@@ -11,10 +11,10 @@
     <% if(data.cod == '404') { %>
        <% checkTemp = 0; %>
        <% checkWeather = 'Invalid Location Name'; %>
-   <% } else { %>
+    <% } else { %>
     <% checkTemp =  data.main.temp; %>
     <% checkWeather = data.weather[0].main;  %>
-  <% }; %>
+    <% }; %>
     <nav>
         <%- include('../partials/nav') %>
     </nav>
