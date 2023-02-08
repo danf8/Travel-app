@@ -7,9 +7,8 @@
 </head>
 <body>
     <nav>
-        <%- include('../partials/nav') %>
+      <%- include('../partials/nav') %>
     </nav>
-
     <h1>Saved Locations</h1>
     <% for( let i = 0; i < user[0].savedLocations.length; i++ ) { %>
       <div>
@@ -23,7 +22,6 @@
         </div>
       </div>
    <% } %>
-
   <%- include('../partials/footer') %>
 </body>
 </html>
