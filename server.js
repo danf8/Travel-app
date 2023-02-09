@@ -38,11 +38,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
 }));
-//dev purposes
-// app.use((req, res, next) => {
-//     console.log(req.session)
-//     next();
-// });
 
 app.use((req, res, next) => {
     if(req.session.userId) {
