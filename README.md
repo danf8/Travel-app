@@ -1,8 +1,8 @@
-#<u> Travel App </u>
+# <u> Travel App </u>
 
 ### <sub>A web application that users can create destinations they have traveled or will travel to. Users can add local attractions or hotels they haved visited. Note any user will be able to see these locations! To add plans about your trip please save the location first. Plans added under saved locations are not viewable by other users.<sub>
 
-##Technologies Used
+## Technologies Used
 
 1. Node.js 
 2. Mongoose
@@ -15,7 +15,7 @@
 9. Bootstrap
 10. Weather API
 
-##Application Screenshots
+## Application Screenshots
 
 <img src ='./screenshots/home.png' width= '400' height= '300'>
 <img src ='./screenshots/Index.png' width= '400' height= '300'>
@@ -30,7 +30,7 @@
 
 Click here to visit[LINK](https://travel-app-1.herokuapp.com/)
 
-##Future Enhancemenets 
+## Future Enhancemenets 
 * Ability for users to remove plans that have been added
 * Disable save button once user has added location to their saved list
 * Add Flights API
