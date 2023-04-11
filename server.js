@@ -46,7 +46,7 @@ app.use((req, res, next) => {
         res.locals.user = null;
     }
     next();
-})
+});
 
 //authenitcatin
 function authenticatedUser(req, res , next) {
