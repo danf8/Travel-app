@@ -14,18 +14,18 @@
     </nav>
     <h1>Travel Locations</h1>
     <div class="location-div">
-        <% locations.forEach(location => { %>
-            <div class="location">
-                <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" ></a> 
-                <p><%= location.name %></p>
-                <div class="links">
-                    <a href="/locations/<%= location._id %>"> <button class="edit btn ">View Destination</button></a>
-                    <form action="/locations/<%= location._id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete" class="btn btn-danger">
-                    </form>
-                </div>
+    <% locations.forEach(location => { %>
+        <div class="location">
+            <a href="/locations/<%= location._id %>"><img src="<%= location.img %>" alt="Image of <%= location.name %>" ></a> 
+            <p><%= location.name %></p>
+            <div class="links">
+                <a href="/locations/<%= location._id %>"> <button class="edit btn ">View Destination</button></a>
+                <form action="/locations/<%= location._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
             </div>
-            <% } ); %>
+        </div>
+    <% } ); %>
     </div>
     <%- include('./partials/footer') %>
 </body>
