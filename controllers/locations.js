@@ -4,7 +4,7 @@ const data = require('../data');
 const Location = require('../models/location');
 
 require('dotenv').config();
-const API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY;
 //seed data
 router.get('/locations/seed', (req, res) => {
     Location.deleteMany({}, (err, results) => {
@@ -19,7 +19,7 @@ router.get('/locations', (req, res) => {
     Location.find({}, (err, allLocations) => {
         res.render('index.ejs', {
             locations: allLocations,
-        })
+        });
     });
 });
 

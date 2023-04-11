@@ -4,7 +4,7 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
 require('dotenv').config();
-const API_KEY = process.env.API_KEY
+const API_KEY = process.env.API_KEY;
 
 //sign up users
 router.get('/signup', (req, res) => {
@@ -58,7 +58,7 @@ router.post('/locations/saved/plans/:id', (req, res) => {
         user.savedLocations[req.body.locationIndex].travelPlan.push(req.body.travelPlan);
         user.savedLocations[req.body.locationIndex].travelDate.push(req.body.travelDate);
         user.save((err) => {
-            res.redirect(`/locations/saved/${req.body.locationIndex}`)
+            res.redirect(`/locations/saved/${req.body.locationIndex}`);
         });
     });
 });
@@ -78,7 +78,7 @@ router.post('/signup', async (req, res) => {
         User.create(req.body, (err, newUser) => {
             if(err) {
                 error= 'email taken';
-                return res.render('signup.ejs', {error})
+                return res.render('signup.ejs', {error});
             }
             req.session.userId = newUser._id;
             res.redirect('/locations');
@@ -125,4 +125,4 @@ router.get('/locations/saved/:indexOf', (req, res) => {
     });
 });
 
-module.exports = router
+module.exports = router;
