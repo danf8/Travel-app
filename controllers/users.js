@@ -8,7 +8,7 @@ const API_KEY = process.env.API_KEY
 
 //sign up users
 router.get('/signup', (req, res) => {
-    res.render('signup.ejs' ,{error: null});
+    res.render('signup.ejs', {error: null});
 });
 
 //login users 
@@ -26,7 +26,7 @@ router.get('/logout', (req, res) => {
 //get saved locations page
 router.get('/locations/saved', (req, res) => {
     User.find({_id: req.session.userId}, (err, savedLocation) => {
-        if ( !req.session.userId ) {
+        if(!req.session.userId) {
             return res.redirect('/');
         }
         res.render('users/saved.ejs', {
@@ -64,39 +64,49 @@ router.post('/locations/saved/plans/:id', (req, res) => {
 });
 
 //handle form submission --CREATE
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
     let error = null;
-    if ( req.body.password !== req.body.confirmPass) {
+    if(req.body.password !== req.body.confirmPass) {
         error = 'passwords must match';
         return res.render('signup.ejs', {error});
     }
-    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-    const hashedConfirmPass = bcrypt.hashSync(req.body.confirmPass, 10);
-    req.body.confirmPass = hashedConfirmPass;
-    req.body.password = hashedPassword;
-    User.create(req.body, (err, newUser) => {
-        if(err) {
-            error= 'email taken';
-            return res.render('signup.ejs', {error})
-        }
-        req.session.userId = newUser._id;
-        res.redirect('/locations');
-    });
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const hashedConfirmPass = await bcrypt.hash(req.body.confirmPass, 10);
+        req.body.confirmPass = hashedConfirmPass;
+        req.body.password = hashedPassword;
+        User.create(req.body, (err, newUser) => {
+            if(err) {
+                error= 'email taken';
+                return res.render('signup.ejs', {error})
+            }
+            req.session.userId = newUser._id;
+            res.redirect('/locations');
+        });
+    }catch(err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 
 // handle form submission -- create
 router.post('/login', (req, res) => {
     const error = 'Incorrect Login Information.'
-    User.findOne({email: req.body.email}, (err, userFound) => {
-        if ( !userFound ) {
+    User.findOne({email: req.body.email}, async (err, userFound) => {
+        if(!userFound) {
             return res.render('login.ejs', {error});
         }
-        const confirmedPass = bcrypt.compareSync(req.body.password, userFound.password);
-        if ( !confirmedPass ) {
-            return res.render('login.ejs', {error});
+        try {
+            const confirmedPass = await bcrypt.compare(req.body.password, userFound.password);
+            if(!confirmedPass) {
+                return res.render('login.ejs', {error});
+            }
+            req.session.userId = userFound._id;
+            res.redirect('/locations');
+        }catch(err) {
+            console.error(err);
+            res.status(500).json({ error: 'Internal server error' });
         }
-        req.session.userId = userFound._id;
-        res.redirect('/locations');
     });
 });
 
