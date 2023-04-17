@@ -69,6 +69,9 @@ router.post('/signup', async (req, res) => {
     if(req.body.password !== req.body.confirmPass) {
         error = 'passwords must match';
         return res.render('signup.ejs', {error});
+    } else if(req.body.password.length <= 6 || req.body.password.length >= 68){
+        error = 'Password length not valid';
+        return res.render('signup.ejs', {error});
     }
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -125,4 +128,4 @@ router.get('/locations/saved/:indexOf', (req, res) => {
     });
 });
 
-module.exports = router;
+module.exports = router; 

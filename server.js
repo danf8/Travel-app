@@ -48,7 +48,7 @@ app.use((req, res, next) => {
     next();
 });
 
-//authenitcatin
+//authentication
 function authenticatedUser(req, res , next) {
     if(!req.session.userId){
         return res.redirect('/');

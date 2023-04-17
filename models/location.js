@@ -9,4 +9,4 @@ const locationSchema = new Schema({
     attractions: String,
 });
 
-module.exports = mongoose.model('location', locationSchema);
+module.exports = mongoose.model('location', locationSchema); 
